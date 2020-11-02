@@ -6,22 +6,53 @@
 </head>
 <body>
   <script>
-    var moves = ["rock", "paper", "scissors"];
-
+    let moves = ["rock", "paper", "scissors"];
+    let numGames = 5;
+    
     function computerPlay() {
-        return moves[Math.random() * 2];
+      return moves[Math.floor(Math.random() * moves.length)];
     }
 
     function playRound(playerSelection, computerSelection) {
+      let result = "";
 
+      if (playerSelection == computerSelection) {
+        result = "Tie!";
+      } else if (playerSelection == moves[0] && computerSelection == moves[2] ||
+          playerSelection == moves[2] && computerSelection == moves[1] ||
+          playerSelection == moves[1] && computerSelection == move[0]) {
+        result = `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1)}` +
+            ` beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.substring(1)}.`;
+      } else {
+        result = `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.substring(1)}` +
+            ` beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1)}.`;
+      }
+
+      return result;
+    }
+
+    function getPlayerMove() {
+      let input = prompt("What's your move: Rock, Paper, or Scissors?");
+      while (!moves.includes(input.toLowerCase())) {
+        alert("There's no such move.");
+        input = prompt("What's your move?");
+      } 
+
+      return input.toLowerCase();
     }
 
     function game() {
+      let playerSelection = "";
+      let computerSelection = "";
 
+      for (let i = 0; i < numGames; i++) {
+        playerSelection = getPlayerMove();
+        computerSelection = computerPlay();
+        alert(playRound(playerSelection, computerSelection));
+      }
     }
-    const playerSelection = "rock";
-    const computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
+    
+    game();
   </script>
 </body>
 </html>
