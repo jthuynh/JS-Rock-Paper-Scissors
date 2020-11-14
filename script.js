@@ -25,6 +25,7 @@ function playRound(e) {
     if (!playerSelection || !computerSelection) {
     return;
     }
+    numRounds++;
 
     if (playerSelection == computerSelection) {
         result.innerHTML = "Draw!";
@@ -49,14 +50,9 @@ function playRound(e) {
 function checkWin() {
     if (playerScore == 5 || compScore == 5) {
         (playerScore > compScore) ? result.innerHTML = "YOU WON!" : result.innerHTML = "COMPUTER WON!";
-        document.getElementById("buttons").removeEventListener('click', playRound);
+        buttons.forEach((button) => button.removeEventListener('click', playRound));
     }
 }
-
-
-// function game() {
-//     (playerScore > compScore) ? alert("Player Won!") : alert("Computer Won!");
-// }
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => button.addEventListener('click', playRound));
