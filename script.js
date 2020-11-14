@@ -2,12 +2,6 @@ let moves = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let compScore = 0;
 let numRounds = 0;
-// gameplay log
-// whenever a button is pressed, check if there's a win
-// if there's no win aka no one hit score of 5 then add
-// an element to a list and reverse the order of the list
-// on screen
-
 
 function computerPlay() {
     return moves[Math.floor(Math.random() * moves.length)];
@@ -28,7 +22,7 @@ function playRound(e) {
     numRounds++;
 
     if (playerSelection == computerSelection) {
-        result.innerHTML = "Draw!";
+        result.innerHTML = `Draw on Round ${numRounds}!`;
     } else if (playerSelection == moves[0] && computerSelection == moves[2] ||
         playerSelection == moves[2] && computerSelection == moves[1] ||
         playerSelection == moves[1] && computerSelection == moves[0]) {
