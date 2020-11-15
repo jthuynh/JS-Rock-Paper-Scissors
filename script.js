@@ -48,8 +48,9 @@ function checkWin() {
     }
 }
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => button.addEventListener('click', playRound));
+const moves = document.querySelector('moves');
+// moves.forEach((button) => button.addEventListener('click', playRound));
+console.log(moves);
 
 const result = document.createElement('result');
 const container = document.querySelector('#container');
