@@ -22,19 +22,18 @@ function playRound(e) {
     numRounds++;
 
     if (playerSelection == computerSelection) {
-        result.innerHTML = `Draw on Round ${numRounds}!`;
+        result.innerHTML = `Draw on Round #${numRounds}!`;
     } else if (playerSelection == moves[0] && computerSelection == moves[2] ||
         playerSelection == moves[2] && computerSelection == moves[1] ||
         playerSelection == moves[1] && computerSelection == moves[0]) {
     
-    playerScore++;
-    result.innerHTML = `You won Round #${numRounds}! ${playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1)}` +
-        ` beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.substring(1)}.`;
+        playerScore++;
+        result.innerHTML = `You won Round #${numRounds}! ${playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1)}` +
+                ` beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.substring(1)}.`;
     } else {
-
-    compScore++;
-    result.innerHTML = `Computer won Round #${numRounds}! ${computerSelection.charAt(0).toUpperCase() + computerSelection.substring(1)}` +
-        ` beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1)}.`;
+        compScore++;
+        result.innerHTML = `Computer won Round #${numRounds}! ${computerSelection.charAt(0).toUpperCase() + computerSelection.substring(1)}` +
+            ` beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1)}.`;
     }
     
     updateScore();
@@ -48,9 +47,13 @@ function checkWin() {
     }
 }
 
-const moves = document.querySelector('moves');
+const buttons = document.querySelectorAll('li');
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', playRound);
+    // console.log();
+}
 // moves.forEach((button) => button.addEventListener('click', playRound));
-console.log(moves);
+// console.log(buttons);
 
 const result = document.createElement('result');
 const container = document.querySelector('#container');
