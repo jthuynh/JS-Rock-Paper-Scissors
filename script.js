@@ -50,11 +50,12 @@ function checkWin() {
 const buttons = document.querySelectorAll('li');
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', playRound);
-    // console.log();
 }
 // moves.forEach((button) => button.addEventListener('click', playRound));
 // console.log(buttons);
 
-const result = document.createElement('result');
+const result = document.createElement('p');
+result.classList.add('result');
+
 const container = document.querySelector('#container');
 container.appendChild(result);

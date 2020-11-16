@@ -20,7 +20,7 @@ h3 {
 }
 
 p {
-    padding-top: 0.75em;
+    padding-top: 0.25em;
     font-size: 2em;
 }
 
@@ -28,4 +28,18 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.moves {
+    margin: auto;
+    text-align: center;
+}
+
+.result {
+    padding-top: 0.50em;
+    padding-bottom: 1em;
+}
+
+#score {
+    font-size: 3.5em;
 }
